@@ -5,22 +5,14 @@ async function printPDF() {
   const context = await browser.newContext();
 
   const page = await context.newPage();
-  await page.goto("https://cv.maltebaer.vercel.app", {
+  await page.goto("https://dune-app.vercel.app/api/render/347403419692040270", {
     waitUntil: "networkidle0",
   });
   await page.addStyleTag({ content: "#print-pdf { display: none } " });
   page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
-    format: "A4",
-    printBackground: true,
-    margin: {
-      top: 30,
-      botton: 30,
-      right: 30,
-      left: 30,
-    },
-    scale: 0.6,
+    
   });
 
   await browser.close();

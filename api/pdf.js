@@ -8,8 +8,6 @@ async function printPDF() {
   await page.goto("https://dune-app.vercel.app/api/render/347403419692040270", {
     waitUntil: "networkidle0",
   });
-  await page.addStyleTag({ content: "#print-pdf { display: none } " });
-  page.emulateMediaType("screen");
 
   const pdf = await page.pdf({
     
